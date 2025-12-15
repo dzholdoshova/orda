@@ -1,0 +1,434 @@
+:root {
+    --primary: #018ABE;
+    --accent: #018ABE;
+    --dark: #001B48;
+    --light: #86b4ed;
+    --bg: #53b3d8;
+    /* светло-голубой фон вместо белого */
+}
+
+/* Продукт картасынын ичиндеги "Корзинага кошуу" баскычы */
+.product-info .add-to-cart-btn {
+    /* Баскычтын жалпы өлчөмүн азайтуу */
+    padding: 1.0rem 2.5rem;
+
+    /* Тексттин өлчөмүн азайтуу */
+    font-size: 1.2rem;
+
+    /* Көлөкөнү (shadow) бир аз жумшартуу */
+    box-shadow: 0 8px 20px rgba(1, 138, 190, .3);
+}
+
+/* КОРЗИНА КУТУЧАСЫНЫН СТИЛДЕРИН КОШУУ */
+
+#cart-container {
+    /* Жайгашуусу (Header'дин астында, оң жакта) */
+    position: fixed;
+    top: 100px;
+    right: 5%;
+
+    /* Дизайн */
+    width: 1000px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+    z-index: 990;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    /* Анимация жана Көрүнүүчүлүк */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 👈 ЭҢ МААНИЛҮҮСҮ: Корзинаны жашыруучу класс */
+#cart-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+}
+
+/* Тизме элементтеринин стилдери */
+#cart-list {
+    list-style: none;
+    padding: 0;
+}
+
+#cart-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+/* Жалпы сумманын стили */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid var(--primary);
+}
+
+/* Баскычтын үстүнө чычканды алып келгенде (hover) да кичирээк болушу керек */
+.product-info .add-to-cart-btn:hover {
+    transform: translateY(-5px);
+    /* Өтө көп көтөрүлбөшү үчүн */
+    box-shadow: 0 15px 35px rgba(1, 138, 190, .5);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #53b3d8;
+    /* background: url(imgs/fon.png); */
+    /* backdrop-filter: blur(15px); */
+    z-index: 1000;
+    padding: 1.3rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .4s;
+}
+
+header.scrolled {
+    padding: 0.9rem 5%;
+    /* box-shadow: 0 10px 35px rgba(0, 0, 0, .2); */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo i {
+    color: white;
+    font-size: 2.6rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 2.8rem;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: .7rem 1.4rem;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, .3);
+}
+
+.hero {
+    height: 100vh;
+    background-image: url(imgs/fon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background: linear-gradient(rgba(1, 139, 190, .88), rgba(1, 139, 190, .95)), url('imgs/fon.png') center/cover no-repeat; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, .4);
+}
+
+.hero p {
+    font-size: 1.7rem;
+    max-width: 900px;
+    margin-bottom: 2.5rem;
+    opacity: .95;
+}
+
+.btn {
+    background: var(--accent);
+    color: white;
+    padding: 1.4rem 3.8rem;
+    border-radius: 60px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 12px 35px rgba(1, 138, 190, .5);
+    transition: all .4s;
+}
+
+.btn:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(1, 138, 190, .7);
+    background: #016fa0;
+}
+
+.section {
+    padding: 130px 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(1, 138, 190, .15);
+    transition: all .6s;
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.product-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 30px 70px rgba(1, 138, 190, .3);
+}
+
+.product-img {
+    height: 280px;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s;
+}
+
+.product-card:hover img {
+    transform: scale(1.15);
+}
+
+.product-info {
+    padding: 2rem;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.6rem;
+    margin-bottom: .6rem;
+}
+
+.product-price {
+    font-size: 1.9rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.product-desc {
+    color: #444;
+    margin-bottom: 1.2rem;
+}
+
+.product-story {
+    background: #e6f4fa;
+    padding: 1.2rem;
+    border-radius: 16px;
+    font-style: italic;
+    color: #005a87;
+    border-left: 5px solid var(--primary);
+    font-size: .96rem;
+}
+
+/* О НАС */
+.about {
+    background: white;
+    padding: 140px 5%;
+    text-align: center;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.about p {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 1.8rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.9;
+}
+
+.about strong {
+    color: var(--primary);
+}
+
+/* КОНТАКТЫ */
+.location-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.location-info h2 {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    margin: 1.8rem 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.contact-item i {
+    color: var(--primary);
+    font-size: 1.7rem;
+}
+
+.contact-info-box {
+    /* 1. Квадрат формасы */
+    width: 400px;
+    height: 400px;
+
+    /* 2. Фон жана Чек ара */
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+
+    /* 3. Көлөкө (визуалдык жактан бөлүп көрсөтүү үчүн) */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+
+    /* 4. Ички элементтерди жайгаштыруу */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.map {
+    height: 480px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 5rem 5% 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px;
+    transition: .3s;
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    transform: translateY(-8px);
+}
+
+@media (max-width:1000px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .products-grid,
+    .location-container,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}

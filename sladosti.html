@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDA — Только сладости</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #018ABE;
+            --accent: #018ABE;
+            --dark: #001B48;
+            --light: #86b4ed;
+            --bg: #c0e4ff;
+            /* светло-голубой фон */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #53b3d8;
+            z-index: 1000;
+            padding: 1.3rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo i {
+            color: white;
+            font-size: 2.6rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.8rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: .7rem 1.4rem;
+            border-radius: 50px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, .3);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+            /* чтобы хедер не перекрывал */
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, .4);
+        }
+
+        .hero p {
+            font-size: 1.7rem;
+            max-width: 900px;
+            opacity: .95;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 80px 0 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(1, 138, 190, .15);
+            transition: all .6s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(1, 138, 190, .3);
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: .5rem;
+            color: var(--dark);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width:1000px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-candy-cane"></i> ORDA</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Только сладости</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Только сладости</h1>
+        <p>Погрузитесь в мир сладостей со всего света — все в одном месте!</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Наши сладости</h2>
+        <div class="products-grid">
+            <!-- 25 продуктов -->
+            <!-- imgs/1.jpg … imgs/25.jpg -->
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/1.jpg" alt="Сладость 1"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 1</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/2.jpg" alt="Сладость 2"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 2</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/3.jpg" alt="Сладость 3"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 3</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/4.jpg" alt="Сладость 4"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 4</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/5.jpg" alt="Сладость 5"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 5</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/6.jpg" alt="Сладость 6"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 6</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/7.jpg" alt="Сладость 7"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 7</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/8.jpg" alt="Сладость 8"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 8</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/9.jpg" alt="Сладость 9"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 9</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/10.jpg" alt="Сладость 10"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 10</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/11.jpg" alt="Сладость 11"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 11</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/12.jpg" alt="Сладость 12"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 12</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/13.jpg" alt="Сладость 13"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 13</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/14.jpg" alt="Сладость 14"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 14</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/15.jpg" alt="Сладость 15"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 15</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/16.jpg" alt="Сладость 16"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 16</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/17.jpg" alt="Сладость 17"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 17</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/18.jpg" alt="Сладость 18"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 18</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/19.jpg" alt="Сладость 19"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 19</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/20.jpg" alt="Сладость 20"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 20</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/21.jpg" alt="Сладость 21"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 21</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/22.jpg" alt="Сладость 22"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 22</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/23.jpg" alt="Сладость 23"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 23</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/24.jpg" alt="Сладость 24"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 24</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"><img src="imgs/25.jpg" alt="Сладость 25"></div>
+                <div class="product-info">
+                    <div class="product-title">Сладость 25</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>© 2025 ORDA • Все права защищены</div>
+    </footer>
+
+</body>
+
+</html>

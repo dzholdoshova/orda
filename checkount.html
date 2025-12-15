@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDA - Заказ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-candy-cane"></i> ORDA</div>
+        <nav>
+            <ul>
+                <a href='home'></a>
+                <li><a href="glavnystr.html">Главная</a></li></a>
+                <li><a href="index.html#products">Сладости</a></li>
+                <li><a href="index.html#about">О нас</a></li>
+                <li><a href="index.html#location">Где нас найти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Ваш заказ</h2>
+        <div id="checkout-container">
+            <ul id="checkout-list">
+                <li class="empty-cart-message">Ваша корзина пока пуста</li>
+            </ul>
+            <div class="cart-summary">
+                <p>Общая сумма: <span id="checkout-total">0</span> ₸</p>
+            </div>
+            <button id="clear-cart-btn" class="clear-btn">Тазалоо</button>
+            <form id="checkout-form">
+                <h3>Контактная информация</h3>
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+
+                <label for="address">Адрес доставки:</label>
+                <input type="text" id="address" name="address" required>
+
+                <button type="submit" class="btn checkout-btn">Отправить заказ</button>
+            </form>
+
+            <p id="order-success" style="color:green; display:none;">Заказ успешно отправлен! Мы с вами свяжемся.</p>
+        </div>
+    </section>
+    <div id="cart-container" class="hidden">
+        <h3>Ваш заказ</h3>
+        <ul id="cart-list">
+            <li class="empty-cart-message">Корзина бош</li>
+        </ul>
+        <div class="cart-summary">
+            <p>Жалпы сумма:</p>
+            <p><span id="cart-total">0</span> ₸</p>
+        </div>
+
+        <button id="clear-cart-btn" class="btn clear-btn">Карзинаны тазалоо</button>
+        <a href="checkount.html"><button id="checkout-btn" class="btn checkout-btn" disabled>Заказ берүү</button></a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ORDA</h3>
+                <p>Уникальные сладости мира в сердце Алматы</p>
+            </div>
+            <div class="copyright">© 2025 ORDA • Все права защищены</div>
+        </div>
+    </footer>
+
+    <!-- <script>
+        // Получаем данные корзины из localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const checkoutList = document.getElementById('checkout-list');
+        const checkoutTotal = document.getElementById('checkout-total');
+
+        function updateCheckout() {
+            checkoutList.innerHTML = '';
+            if (cart.length === 0) {
+                checkoutList.innerHTML = '<li class="empty-cart-message">Ваша корзина пока пуста</li>';
+                checkoutTotal.textContent = '0';
+                return;
+            }
+
+            let total = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} x ${item.quantity} - ${item.price * item.quantity} ₸`;
+                checkoutList.appendChild(li);
+                total += item.price * item.quantity;
+            });
+
+            checkoutTotal.textContent = total;
+        }
+
+        updateCheckout();
+
+        // Обработка отправки формы
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Можно добавить сюда отправку на сервер через fetch или AJAX
+            document.getElementById('order-success').style.display = 'block';
+            localStorage.removeItem('cart'); // Очистка корзины
+            updateCheckout();
+            checkoutForm.reset();
+        });
+    </script> -->
+    <script>
+        // Получаем данные корзины из localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const checkoutList = document.getElementById('checkout-list');
+        const checkoutTotal = document.getElementById('checkout-total');
+        const checkoutForm = document.getElementById('checkout-form');
+        const submitButton = checkoutForm.querySelector('button[type="submit"]');
+
+        function updateCheckout() {
+            checkoutList.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                checkoutList.innerHTML = '<li class="empty-cart-message">Ваша корзина пока пуста</li>';
+                checkoutTotal.textContent = '0';
+                submitButton.disabled = true;
+                return;
+            }
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const li = document.createElement('li');
+                li.className = 'checkout-item';
+
+                li.innerHTML = `
+                    <span class="item-details">${item.name} x ${item.quantity} - ${itemTotal} ₸</span>
+                    <button class="remove-item-btn" data-product-id="${item.id}"><i class="fas fa-times"></i></button>
+                `;
+
+                checkoutList.appendChild(li);
+            });
+
+            checkoutTotal.textContent = total.toLocaleString('ru-RU');
+            submitButton.disabled = false;
+
+            // "Өчүрүү" баскычтарына окуя кошуу
+            document.querySelectorAll('.remove-item-btn').forEach(button => {
+                button.addEventListener('click', removeItem);
+            });
+        }
+
+        function removeItem(e) {
+            e.preventDefault();
+            const productId = e.currentTarget.dataset.productId;
+
+            // Корзинадан продуктту алып салуу
+            cart = cart.filter(item => item.id !== productId);
+
+            // localStorage'ды жаңыртуу
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Дисплейди жаңыртуу
+            updateCheckout();
+
+            // Эскертүү: Башкы беттеги (glavnystr.html) корзинанын санын жаңыртуу үчүн,
+            // колдонуучу башкы бетке кайра киргенде script.js аркылуу автоматтык түрдө жаңыртылат.
+        }
+
+        updateCheckout();
+
+        // Обработка отправки формы
+        checkoutForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            document.getElementById('order-success').style.display = 'block';
+
+            // Корзинаны тазалоо
+            localStorage.removeItem('cart');
+
+            // Дисплейди жаңыртуу (бош корзинаны көрсөтүү)
+            cart = [];
+            updateCheckout();
+
+            checkoutForm.reset();
+            checkoutForm.style.display = 'none'; // Заказ ийгиликтүү болгондон кийин форманы жашыруу
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

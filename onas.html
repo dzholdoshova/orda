@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDA — О нас</title>
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- СТИЛДЕР (БИР БЕТТЕ) -->
+    <style>
+        :root {
+            --primary: #018ABE;
+            /* негизги ачык көк */
+            --accent: #018ABE;
+            /* акцент ачык көк */
+            --accent: #018ABE;
+            /* ток көк */
+            --light: #86b4ed;
+            /* жеңил ачык көк */
+            --bg: #53b3d8;
+            /* фон үчүн ачык көк */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav .active {
+            color: var(--accent);
+        }
+
+        /* HERO */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=1400') center/cover no-repeat;
+            padding: 150px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .hero h1,
+        .hero p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-family: "Playfair Display", serif;
+        }
+
+        .hero p {
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-family: "Playfair Display", serif;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .section-text {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        /* ABOUT CARDS */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .about-card {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* STORY */
+        .story-box {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 18px;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            line-height: 1.7;
+            font-size: 18px;
+            color: var(--dark);
+        }
+
+        /* TEAM */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card img {
+            width: 100%;
+            border-radius: 14px;
+            height: 280px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .team-card p {
+            color: var(--primary);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: #ffffff;
+            padding: 50px 10%;
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-candy-cane"></i> ORDA</div>
+        <nav>
+            <ul>
+                <li><a href="glavnystr.html">Главная</a></li>
+                <li><a href="onas.html" class="active">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>О нас</h1>
+        <p>ORDA — место, где сладости из разных стран оживают в одном пространстве.</p>
+    </section>
+
+    <!-- WHY WE STARTED -->
+    <section class="section">
+        <h2 class="section-title">Почему мы создали ORDA?</h2>
+        <p class="section-text">
+            Мы верим, что сладости — это язык культуры. Каждое лакомство несет историю, традицию и эмоцию.
+            Поэтому мы собираем <strong>лучшие сладости из 25+ стран мира</strong>, чтобы делиться ими с вами.
+        </p>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fas fa-globe icon"></i>
+                <h3>Международная коллекция</h3>
+                <p>Мы привозим сладости из Японии, Турции, Франции, Италии и других стран.</p>
+            </div>
+
+            <div class="about-card">
+                <i class="fas fa-heart icon"></i>
+                <h3>Любовь и качество</h3>
+                <p>Каждый продукт тщательно выбирается — только лучшее попадает к вам.</p>
+            </div>
+
+            <div class="about-card">
+                <i class="fas fa-leaf icon"></i>
+                <h3>Натуральность</h3>
+                <p>Мы выбираем товары только из натуральных ингредиентов.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="section">
+        <h2 class="section-title">Наша история</h2>
+        <div class="story-box">
+            История ORDA началась с маленькой мечты: привезти редкие, уникальные сладости мира. Сначала было всего три
+            десерта на домашней кухне. Сегодня ORDA — коллекция вкусов из Кореи, Японии, Франции, Италии, Испании,
+            Турции и десятков других стран.
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section">
+        <h2 class="section-title">Наша команда</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800" alt="">
+                <h3>Айда</h3>
+                <p>Создательница ORDA, вдохновитель и дегустатор №1 ❤️</p>
+            </div>
+
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800" alt="">
+                <h3>Ороз</h3>
+                <p>Главный кондитер и автор всех уникальных рецептов</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="section">
+        <h2 class="section-title">Наша миссия</h2>
+        <p class="section-text">
+            Мы хотим делать людей счастливее — одним сладким моментом за раз.
+        </p>
+    </section>
+
+    <footer>
+        © 2025 ORDA — Все права защищены
+    </footer>
+
+</body>
+
+</html>

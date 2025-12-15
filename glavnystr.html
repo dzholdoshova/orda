@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDA - Сладости мира</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Праздничный эффект — конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            opacity: 0.8;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-candy-cane"></i> ORDA</div>
+        <nav>
+            <ul>
+                <li><a href="glavnystr.html">Главная</a></li>
+                <li><a href="#products">Сладости</a></li>
+                <li><a href="onas.html">О нас</a></li>
+                <li><a href="gdenass.html">Где нас найти</a></li>
+            </ul>
+        </nav>
+        <button id="cart-icon" class="cart-icon-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </button>
+    </header>
+
+    <div id="cart-container" class="hidden">
+        <h3>Ваш заказ</h3>
+        <ul id="cart-list">
+            <li class="empty-cart-message">Корзина бош</li>
+        </ul>
+        <div class="cart-summary">
+            <p>Жалпы сумма:</p>
+            <p><span id="cart-total">0</span> ₸</p>
+        </div>
+        <a href="checkount.html"><button id="checkout-btn" class="btn checkout-btn" disabled>Заказ берүү</button></a>
+    </div>
+
+
+    <section id="home" class="hero">
+        <h1>ORDA</h1>
+        <p>Настоящие сладости из 25 стран мира — по оригинальным рецептам</p>
+        <a href="#products" class="btn">Выбрать сладость</a>
+    </section>
+
+
+    <section id="products" class="section">
+        <h2 class="section-title">Наши сладости</h2>
+        <div class="products-grid">
+
+            <div class="product-card" data-product-id="1" data-name="Турецкий Локум" data-price="1200">
+                <div class="product-img"><img src="imgs/1a.jpg" alt="Локум"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Турецкий Локум</h3>
+                    <div class="product-price">1200 ₸</div>
+                    <p class="product-desc">Традиционное турецкое лакомство с орехами и ароматами розы</p>
+                    <div class="product-story">"Этот рецепт передается в семье кондитеров уже 5 поколений."</div>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="2" data-name="Французский Макарон" data-price="1500">
+                <div class="product-img"><img src="imgs/2.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Французский Макарон</h3>
+                    <div class="product-price">1500 ₸</div>
+                    <p class="product-desc">Нежные миндальные пирожные с кремом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="3" data-name="Итальянский Тирамису" data-price="1800">
+                <div class="product-img"><img src="imgs/3.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Итальянский Тирамису</h3>
+                    <div class="product-price">1800 ₸</div>
+                    <p class="product-desc">Кофейный десерт с маскарпоне</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="4" data-name="Японский Моти" data-price="1300">
+                <div class="product-img"><img src="imgs/4.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Японский Моти</h3>
+                    <div class="product-price">1300 ₸</div>
+                    <p class="product-desc">Рисовые сладости с начинкой</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="5" data-name="Шоколад Бельгии" data-price="2000">
+                <div class="product-img"><img src="imgs/5.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Шоколад Бельгии</h3>
+                    <div class="product-price">2000 ₸</div>
+                    <p class="product-desc">Премиальный шоколад ручной работы</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="6" data-name="Чизкейк Нью-Йорк" data-price="1700">
+                <div class="product-img"><img src="imgs/6.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Чизкейк Нью-Йорк</h3>
+                    <div class="product-price">1700 ₸</div>
+                    <p class="product-desc">Классический сливочный чизкейк</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="7" data-name="Корейский Бингсу" data-price="1600">
+                <div class="product-img"><img src="imgs/7.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Корейский Бингсу</h3>
+                    <div class="product-price">1600 ₸</div>
+                    <p class="product-desc">Ледяной десерт с сиропом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="8" data-name="Испанский Чуррос" data-price="1400">
+                <div class="product-img"><img src="imgs/8.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Испанский Чуррос</h3>
+                    <div class="product-price">1400 ₸</div>
+                    <p class="product-desc">Хрустящие палочки с шоколадом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="9" data-name="Греческий Баклава" data-price="1600">
+                <div class="product-img"><img src="imgs/9.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Греческий Баклава</h3>
+                    <div class="product-price">1600 ₸</div>
+                    <p class="product-desc">Слоёное тесто с орехами и мёдом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="10" data-name="Индийский Гула́б Джамун" data-price="1100">
+                <div class="product-img"><img src="imgs/10.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Индийский Гула́б Джамун</h3>
+                    <div class="product-price">1100 ₸</div>
+                    <p class="product-desc">Шарики в сиропе из розовой воды</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="11" data-name="Австрийский Захер" data-price="2200">
+                <div class="product-img"><img src="imgs/11.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Австрийский Захер</h3>
+                    <div class="product-price">2200 ₸</div>
+                    <p class="product-desc">Шоколадный торт с абрикосом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="12" data-name="Португальские Паштел де Ната" data-price="900">
+                <div class="product-img"><img src="imgs/12.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Португальские Паштел де Ната</h3>
+                    <div class="product-price">900 ₸</div>
+                    <p class="product-desc">Слоёные корзинки с заварным кремом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="13" data-name="Арабский Кнафе" data-price="1800">
+                <div class="product-img"><img src="imgs/13.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Арабский Кнафе</h3>
+                    <div class="product-price">1800 ₸</div>
+                    <p class="product-desc">Сырная выпечка с сиропом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="14" data-name="Тайский Манго Стики Райс" data-price="1500">
+                <div class="product-img"><img src="imgs/14.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Тайский Манго Стики Райс</h3>
+                    <div class="product-price">1500 ₸</div>
+                    <p class="product-desc">Клейкий рис с манго и кокосом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="15" data-name="Бразильский Бригадейро" data-price="1000">
+                <div class="product-img"><img src="imgs/15.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Бразильский Бригадейро</h3>
+                    <div class="product-price">1000 ₸</div>
+                    <p class="product-desc">Шоколадные шарики из сгущёнки</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="16" data-name="Швейцарский Люксембургерли" data-price="1900">
+                <div class="product-img"><img src="imgs/16.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Швейцарский Люксембургерли</h3>
+                    <div class="product-price">1900 ₸</div>
+                    <p class="product-desc">Мини-макароны от Sprüngli</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="17" data-name="Мексиканский Чуррос с Дульсе де Лече"
+                data-price="1400">
+                <div class="product-img"><img src="imgs/17.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Мексиканский Чуррос с Дульсе де Лече</h3>
+                    <div class="product-price">1400 ₸</div>
+                    <p class="product-desc">С карамелью из сгущённого молока</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="18" data-name="Марокканский Шебakia" data-price="1300">
+                <div class="product-img"><img src="imgs/18.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Марокканский Шебakia</h3>
+                    <div class="product-price">1300 ₸</div>
+                    <p class="product-desc">Медовое печенье с кунжутом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="19" data-name="Русский Пряник Тульский" data-price="800">
+                <div class="product-img"><img src="imgs/19.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Русский Пряник Тульский</h3>
+                    <div class="product-price">800 ₸</div>
+                    <p class="product-desc">С варёной сгущёнкой и орехами</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="20" data-name="Узбекский Ширин" data-price="1100">
+                <div class="product-img"><img src="imgs/20.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Узбекский Ширин</h3>
+                    <div class="product-price">1100 ₸</div>
+                    <p class="product-desc">Сладкие орешки в сахаре</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="21" data-name="Казахский Баурсак с мёдом" data-price="700">
+                <div class="product-img"><img src="imgs/21.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Казахский Баурсак с мёдом</h3>
+                    <div class="product-price">700 ₸</div>
+                    <p class="product-desc">Традиционные пончики в меду</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="22" data-name="Венгерский Кюртёшкалач" data-price="1500">
+                <div class="product-img"><img src="imgs/22.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Венгерский Кюртёшкалач</h3>
+                    <div class="product-price">1500 ₸</div>
+                    <p class="product-desc">Трубочка с корицей и орехами</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="23" data-name="Польский Масяк" data-price="1700">
+                <div class="product-img"><img src="imgs/23.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Польский Масяк</h3>
+                    <div class="product-price">1700 ₸</div>
+                    <p class="product-desc">Маковый рулет с изюмом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="24" data-name="Аргентинский Альфахорес" data-price="1200">
+                <div class="product-img"><img src="imgs/24.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Аргентинский Альфахорес</h3>
+                    <div class="product-price">1200 ₸</div>
+                    <p class="product-desc">Песочное печенье с дульсе де лече</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+            <div class="product-card" data-product-id="25" data-name="Израильский Халва" data-price="1400">
+                <div class="product-img"><img src="imgs/25.jpg" alt=""></div>
+                <div class="product-info">
+                    <h3 class="product-title">Израильский Халва</h3>
+                    <div class="product-price">1400 ₸</div>
+                    <p class="product-desc">С фисташками и кунжутом</p>
+                    <button class="btn add-to-cart-btn">Корзинага кошуу</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>Мы — ORDA</h2>
+        <p>Мы не просто продаём сладости. <strong>Мы привозим в Алматы настоящий вкус мира.</strong></p>
+        <p>Каждое лакомство — это путешествие: локум летит из Стамбула, макароны — из Парижа, моти — из Токио,
+            бельгийский шоколад делаем только из оригинального кувертюра Callebaut.</p>
+        <p>Никаких «похоже», «примерно» или «аналог». Только <strong>подлинные рецепты</strong> и истории за каждым
+            кусочком.</p>
+        <p>Приходите за вкусом — оставайтесь за атмосферой и впечатлениями.</p>
+    </section>
+
+    <section id="location" class="section">
+        <h2 class="section-title">Где нас найти</h2>
+        <div class="location-container">
+
+            <div class="location-info">
+                <div class="contact-info-box">
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>ул. Умай эне, 9, Баткен</span>
+                    </div>
+                    <div class="contact-item"><i class="fas fa-phone"></i> <span>+0709620025</span></div>
+                    <div class="contact-item"><i class="fas fa-clock"></i> <span>Ежедневно 10:00 – 22:00</span></div>
+                    <div class="contact-item"><i class="fab fa-instagram"></i><a
+                            href="https://www.instagram.com/direct/t/Dzho1doshova1/"><span>@Orda.kg</span></a></div>
+                </div>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20515.468716364713!2d71.331963!3d40.31055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389cef2c8c2e2c2b%3A0x0!2sKyrgyz-Kyshtak%2C%20Kadamjay%20District%2C%20Batken%20Region%2C%20Kyrgyzstan!5e0!3m2!1sru!2skg!4v1700000000000"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ORDA</h3>
+                <p>Уникальные сладости мира в сердце Кыргызстане</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/direct/t/Dzho1doshova1/"><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/996709620025"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#products">Сладости</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>+7 (701) 123-45-67</p>
+                <p>info@orda-sweets.kg</p>
+                <p>Ежедневно 10:00–22:00</p>
+            </div>
+        </div>
+        <div class="copyright">© 2025 ORDA • Все права защищены</div>
+    </footer>
+    <div class="confetti"></div>
+
+    <script>
+        // === Генерация конфетти ===
+        const confettiContainer = document.querySelector('.confetti');
+        const colors = ['#ffffff', '#a0d8ef', '#cce7ff', '#e6f7ff'];
+        for (let i = 0; i < 100; i++) {
+            const div = document.createElement('div');
+            div.classList.add('confetti-piece');
+            div.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.animationDuration = (3 + Math.random() * 5) + 's';
+            div.style.width = (5 + Math.random() * 5) + 'px';
+            div.style.height = (5 + Math.random() * 5) + 'px';
+            confettiContainer.appendChild(div);
+        }
+    </script>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
