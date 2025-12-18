@@ -1,5 +1,4 @@
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +32,6 @@
             0% {
                 transform: translateY(-10px) rotate(0deg);
             }
-
             100% {
                 transform: translateY(100vh) rotate(360deg);
             }
@@ -79,7 +77,7 @@
                 <div class="product-img"><img src="imgs/1a.jpg" alt="Локум"></div>
                 <div class="product-info">
                     <h3 class="product-title">Турецкий Локум</h3>
-                    <div class="product-price">1200 ₸</div>
+                    <div class="product-price">1200 сом</div>
                     <p class="product-desc">Традиционное турецкое лакомство с орехами и ароматами розы</p>
                     <div class="product-story">"Этот рецепт передается в семье кондитеров уже 5 поколений."</div>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
@@ -89,7 +87,7 @@
                 <div class="product-img"><img src="imgs/2.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Французский Макарон</h3>
-                    <div class="product-price">1500 ₸</div>
+                    <div class="product-price">1500 сом</div>
                     <p class="product-desc">Нежные миндальные пирожные с кремом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -98,7 +96,7 @@
                 <div class="product-img"><img src="imgs/3.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Итальянский Тирамису</h3>
-                    <div class="product-price">1800 ₸</div>
+                    <div class="product-price">1800 сом</div>
                     <p class="product-desc">Кофейный десерт с маскарпоне</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -107,7 +105,7 @@
                 <div class="product-img"><img src="imgs/4.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Японский Моти</h3>
-                    <div class="product-price">1300 ₸</div>
+                    <div class="product-price">1300 сом</div>
                     <p class="product-desc">Рисовые сладости с начинкой</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -116,7 +114,7 @@
                 <div class="product-img"><img src="imgs/5.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Шоколад Бельгии</h3>
-                    <div class="product-price">2000 ₸</div>
+                    <div class="product-price">2000 сом</div>
                     <p class="product-desc">Премиальный шоколад ручной работы</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -125,7 +123,7 @@
                 <div class="product-img"><img src="imgs/6.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Чизкейк Нью-Йорк</h3>
-                    <div class="product-price">1700 ₸</div>
+                    <div class="product-price">1700 сом</div>
                     <p class="product-desc">Классический сливочный чизкейк</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -134,7 +132,7 @@
                 <div class="product-img"><img src="imgs/7.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Корейский Бингсу</h3>
-                    <div class="product-price">1600 ₸</div>
+                    <div class="product-price">1600 сом</div>
                     <p class="product-desc">Ледяной десерт с сиропом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -143,7 +141,7 @@
                 <div class="product-img"><img src="imgs/8.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Испанский Чуррос</h3>
-                    <div class="product-price">1400 ₸</div>
+                    <div class="product-price">1400 сом</div>
                     <p class="product-desc">Хрустящие палочки с шоколадом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -152,7 +150,7 @@
                 <div class="product-img"><img src="imgs/9.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Греческий Баклава</h3>
-                    <div class="product-price">1600 ₸</div>
+                    <div class="product-price">1600 сом</div>
                     <p class="product-desc">Слоёное тесто с орехами и мёдом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -161,7 +159,7 @@
                 <div class="product-img"><img src="imgs/10.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Индийский Гула́б Джамун</h3>
-                    <div class="product-price">1100 ₸</div>
+                    <div class="product-price">1100 сом</div>
                     <p class="product-desc">Шарики в сиропе из розовой воды</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -170,7 +168,7 @@
                 <div class="product-img"><img src="imgs/11.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Австрийский Захер</h3>
-                    <div class="product-price">2200 ₸</div>
+                    <div class="product-price">2200 сом</div>
                     <p class="product-desc">Шоколадный торт с абрикосом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -179,7 +177,7 @@
                 <div class="product-img"><img src="imgs/12.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Португальские Паштел де Ната</h3>
-                    <div class="product-price">900 ₸</div>
+                    <div class="product-price">900 сом</div>
                     <p class="product-desc">Слоёные корзинки с заварным кремом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -188,7 +186,7 @@
                 <div class="product-img"><img src="imgs/13.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Арабский Кнафе</h3>
-                    <div class="product-price">1800 ₸</div>
+                    <div class="product-price">1800 сом</div>
                     <p class="product-desc">Сырная выпечка с сиропом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -197,7 +195,7 @@
                 <div class="product-img"><img src="imgs/14.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Тайский Манго Стики Райс</h3>
-                    <div class="product-price">1500 ₸</div>
+                    <div class="product-price">1500 сом</div>
                     <p class="product-desc">Клейкий рис с манго и кокосом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -206,7 +204,7 @@
                 <div class="product-img"><img src="imgs/15.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Бразильский Бригадейро</h3>
-                    <div class="product-price">1000 ₸</div>
+                    <div class="product-price">1000 сом</div>
                     <p class="product-desc">Шоколадные шарики из сгущёнки</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -215,7 +213,7 @@
                 <div class="product-img"><img src="imgs/16.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Швейцарский Люксембургерли</h3>
-                    <div class="product-price">1900 ₸</div>
+                    <div class="product-price">1900 сом</div>
                     <p class="product-desc">Мини-макароны от Sprüngli</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -225,7 +223,7 @@
                 <div class="product-img"><img src="imgs/17.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Мексиканский Чуррос с Дульсе де Лече</h3>
-                    <div class="product-price">1400 ₸</div>
+                    <div class="product-price">1400 сом</div>
                     <p class="product-desc">С карамелью из сгущённого молока</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -234,7 +232,7 @@
                 <div class="product-img"><img src="imgs/18.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Марокканский Шебakia</h3>
-                    <div class="product-price">1300 ₸</div>
+                    <div class="product-price">1300 сом</div>
                     <p class="product-desc">Медовое печенье с кунжутом</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -243,7 +241,7 @@
                 <div class="product-img"><img src="imgs/19.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Русский Пряник Тульский</h3>
-                    <div class="product-price">800 ₸</div>
+                    <div class="product-price">800 сом</div>
                     <p class="product-desc">С варёной сгущёнкой и орехами</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -252,7 +250,7 @@
                 <div class="product-img"><img src="imgs/20.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Узбекский Ширин</h3>
-                    <div class="product-price">1100 ₸</div>
+                    <div class="product-price">1100 сом</div>
                     <p class="product-desc">Сладкие орешки в сахаре</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -261,7 +259,7 @@
                 <div class="product-img"><img src="imgs/21.jpg" alt=""></div>
                 <div class="product-info">
                     <h3 class="product-title">Казахский Баурсак с мёдом</h3>
-                    <div class="product-price">700 ₸</div>
+                    <div class="product-price">700 сом</div>
                     <p class="product-desc">Традиционные пончики в меду</p>
                     <button class="btn add-to-cart-btn">Корзинага кошуу</button>
                 </div>
@@ -316,6 +314,7 @@
     <section id="location" class="section">
         <h2 class="section-title">Где нас найти</h2>
         <div class="location-container">
+
             <div class="location-info">
                 <div class="contact-info-box">
                     <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>ул. Умай эне, 9, Баткен</span>
